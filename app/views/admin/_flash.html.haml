@@ -1,0 +1,4 @@
+- flash.each do |key, value|
+  - next if value.blank?
+  %div{:class => "#{flash_class(key)}", style: "margin:0 0 0 250px"}
+    = value

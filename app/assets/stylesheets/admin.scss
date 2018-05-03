@@ -1,0 +1,14 @@
+@import "font-awesome";
+@import 'bootstrap-sprockets';
+@import "bootstrap_sb_admin_base_v2";
+@import 'bootstrap-datetimepicker';
+
+.headline {
+  display: inline-block;
+}
+
+.headline.link {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: right;
+}

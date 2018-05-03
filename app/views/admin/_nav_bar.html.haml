@@ -1,0 +1,38 @@
+%nav.navbar.navbar-default.navbar-static-top{:role => "navigation", :style => "margin-bottom: 0"}
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{:href => root_path}= "#{I18n.t('intro.name')}"
+  / /.navbar-header
+  %ul.nav.navbar-top-links
+    %li.dropdown.navbar-right
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        %i.fa.fa-user.fa-fw
+        %i.fa.fa-caret-down
+      %ul.dropdown-menu.dropdown-user
+        %li
+          %a{:href => admin_super_account_path(@current_user)}
+            %i.fa.fa-user.fa-fw
+            个人信息
+        - if @current_user.is_super?
+          %li
+            %a{:href => admin_super_accounts_path}
+              %i.fa.fa-reddit.fa-fw
+              管理员管理
+          %li.divider
+          %li
+            %a{:href => admin_accounts_path}
+              %i.fa.fa-reddit.fa-fw
+              账户管理
+        %li.divider
+        %li
+          %a{:href => logout_path}
+            %i.fa.fa-sign-out.fa-fw
+            Logout
+      / /.dropdown-user
+    / /.dropdown
+  / /.navbar-top-links
+  = render 'side_bar'

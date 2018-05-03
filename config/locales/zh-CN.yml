@@ -1,0 +1,6 @@
+zh-CN:
+  errors:
+    messages:
+      blank: "不能为空"
+  intro:
+    name: Exchange

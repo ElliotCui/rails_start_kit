@@ -1,0 +1,20 @@
+%h1.page-header= @account.new_record? ? "/普通账户/新建" : "/普通账户/编辑"
+
+= form_for @account, url: url do |f|
+  .form-group
+    = f.label "姓名"
+    = f.text_field :name, class: 'form-control', value: @account.name, placeholder: "请输入账户持有人姓名"
+  .form-group
+    = f.label "邮箱"
+    = f.email_field :email, class: 'form-control', value: @account.email, placeholder: "请输入账户持有人工作邮箱"
+  - if @account.new_record?
+    .form-group
+      = f.label "密码"
+      = f.password_field :password, class: 'form-control', value: @account.password, placeholder: "请输入密码"
+    .form-group
+      = f.label "密码确认"
+      = f.password_field :password_confirmation, class: 'form-control', value: @account.password_confirmation, placeholder: "请确认密码"
+
+  %hr
+
+  = f.submit "确定", class: "btn btn-primary"

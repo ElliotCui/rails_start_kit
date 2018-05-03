@@ -1,0 +1,16 @@
+%h1.page-header= "#{@super_account.name}"
+
+- info = raw(@super_account.as_json.to_json)
+
+.panel.panel-default
+  .panel-heading
+    %h4.panel-title 基本信息
+  .panel-collapse
+    .panel-body
+      %pre{id: "info"}
+
+:javascript
+  $(document).ready(function(){
+    let info = prettyPrint.syntaxHighlight(#{info});
+    prettyPrint.output("info", info);
+  });

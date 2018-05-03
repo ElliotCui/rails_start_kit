@@ -1,0 +1,28 @@
+.page-header
+  .row
+    .col-md-10.headline
+      %h1 账户
+    .col-md-2.headline.link
+      %a.btn.btn-link{:href => new_admin_account_path} 新建
+
+.row
+  .col-lg-12
+    %table.table.table-hover
+      %thead
+        %tr
+          %th #
+          %th 用户名
+          %th 工作邮箱
+          %th 操作
+      %tbody
+        - @accounts.each do |account|
+          %tr
+            %td= account.id
+            %td= account.name
+            %td= account.email
+            %td
+              = link_to "查看", admin_account_path(account), class: "btn btn-link table-element", role: 'button'
+              = link_to "编辑", edit_admin_account_path(account), class: "btn btn-link table-element", role: 'button'
+              = link_to "删除", admin_account_path(account), class: "btn btn-link table-element", role: 'button', method: :delete, data: {:confirm => "确定移除#{account.name}的管理员权限吗？"}
+
+    = will_paginate @accounts, renderer: BootstrapPagination::Rails
