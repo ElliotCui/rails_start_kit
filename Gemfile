@@ -28,6 +28,8 @@ gem "nokogiri", '1.8.2'
 gem 'redis', '~> 4.0'
 gem "bcrypt-ruby", :require => "bcrypt"
 
+gem 'colorize'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
