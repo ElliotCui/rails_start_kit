@@ -16,7 +16,7 @@ namespace :init do
     ]
     tar_files.each do |tar_file|
       file = Rails.root.join(tar_file).to_s
-      system("sed -i '.rename' 's/StartKit/#{proj_name}/g' #{file}")
+      system("sed -i '.rename' 's/start_kit/#{proj_name}/g' #{file}")
       system("rm #{file}.rename")
     end
 
@@ -28,7 +28,7 @@ namespace :init do
     ]
     tar_files.each do |tar_file|
       file = Rails.root.join(tar_file).to_s
-      system("sed -i '.rename' 's/start_kit/#{proj_name.classify}/g' #{file}")
+      system("sed -i '.rename' 's/StartKit/#{proj_name.classify}/g' #{file}")
       system("rm #{file}.rename")
     end
 
